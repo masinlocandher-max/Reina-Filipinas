@@ -29,7 +29,7 @@ export default function ThePageant() {
             <p>From an opening field of 21 delegates, the competition moved through swimsuit, evening gown, final speech and question-and-answer rounds. Seven finalists remained for the closing stages, where the organization named its first three international representatives and completed the inaugural royal court.</p>
           </div>
           <figure className="coronation-story__hero">
-            <img alt="The three Reina Filipinas 2026 titleholders wearing their crowns" src="/images/titleholders-2026.jpeg" />
+            <img alt="The three Reina Filipinas 2026 titleholders wearing their crowns" decoding="async" height="1400" src="/images/titleholders-2026.webp" width="1120" />
             <figcaption>Angelica Lopez, Alexie Brooks and Anne Patricia Diaz · Reina Filipinas 2026</figcaption>
           </figure>
         </section>
@@ -42,13 +42,13 @@ export default function ThePageant() {
             </header>
             <div className="winner-editorial-grid">
               <article>
-                <figure><img alt="Angelica Lopez of Palawan" loading="lazy" src="/images/angelica-lopez.jpeg" /></figure>
+                <figure><img alt="Angelica Lopez of Palawan" decoding="async" height="1400" loading="lazy" src="/images/angelica-lopez.webp" width="1119" /></figure>
                 <p className="eyeline">Reina Filipinas Grand International 2026</p>
                 <h3>Angelica Lopez</h3>
                 <p>Angelica Lopez of Palawan won the primary national title and will represent the Philippines at Miss Grand International 2026 in India.</p>
               </article>
               <article>
-                <figure><img alt="Alexie Brooks and Anne Patricia Diaz" loading="lazy" src="/images/alexie-brooks-anne-diaz.jpeg" /></figure>
+                <figure><img alt="Alexie Brooks and Anne Patricia Diaz" decoding="async" height="1400" loading="lazy" src="/images/alexie-brooks-anne-diaz.webp" width="1120" /></figure>
                 <p className="eyeline">Reina Filipinas MGI All Stars 2026</p>
                 <h3>Alexie Brooks & Anne Patricia Diaz</h3>
                 <p>Alexie Brooks of Iloilo City and Anne Patricia Diaz of Manila earned the two MGI All Stars titles and will represent the Philippines at the competition’s second edition in Thailand. Diaz became the organization’s first transgender titleholder.</p>
@@ -132,7 +132,7 @@ export default function ThePageant() {
               {royalCourt.map((queen) => (
                 <article key={queen.name}>
                   <div className="royal-court-grid__image">
-                    <img alt={`${queen.name} of ${queen.locality}`} loading="lazy" src={queen.image} />
+                    <img alt={`${queen.name} of ${queen.locality}`} decoding="async" height="2048" loading="lazy" src={queen.image} width="1639" />
                     <span>{queen.placement}</span>
                   </div>
                   <h3>{queen.name}</h3>

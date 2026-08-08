@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { navigation, socialLinks } from '../data/content.js'
+import ArrowIcon from './ArrowIcon.jsx'
 import BrandMark from './BrandMark.jsx'
 
 export default function Footer() {
@@ -23,7 +24,8 @@ export default function Footer() {
           <div className="footer-links">
             {socialLinks.map((item) => (
               <a href={item.href} key={item.href} rel="noreferrer" target="_blank">
-                {item.label} <span aria-hidden="true">↗</span>
+                <span>{item.label}</span>
+                <ArrowIcon direction="external" />
               </a>
             ))}
           </div>

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import ArrowIcon from './ArrowIcon.jsx'
 
 export default function QueenCard({ queen, priority = false }) {
   return (
@@ -7,9 +8,12 @@ export default function QueenCard({ queen, priority = false }) {
         <img
           alt={`${queen.name}, ${queen.title}`}
           className="queen-card__image"
+          decoding="async"
+          height="2048"
           loading={priority ? 'eager' : 'lazy'}
           src={queen.image}
           style={{ objectPosition: queen.imagePosition || 'center center' }}
+          width="1639"
         />
       </Link>
       <div className="queen-card__meta">
@@ -19,7 +23,7 @@ export default function QueenCard({ queen, priority = false }) {
           <span>{queen.locality}</span>
           <span>{queen.assignment}</span>
         </div>
-        <Link className="text-link" to={queen.to}>View profile <span aria-hidden="true">→</span></Link>
+        <Link className="text-link" to={queen.to}>View profile <ArrowIcon /></Link>
       </div>
     </article>
   )

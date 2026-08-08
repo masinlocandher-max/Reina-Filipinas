@@ -14,7 +14,7 @@ export default function AllStars() {
       <section className="duo-feature">
         <div className="shell duo-feature__grid">
           <figure>
-            <img alt="MGI All Stars titleholders Alexie Brooks and Anne Patricia Diaz wearing their Reina Filipinas crowns" src="/images/alexie-brooks-anne-diaz.jpeg" />
+            <img alt="MGI All Stars titleholders Alexie Brooks and Anne Patricia Diaz wearing their Reina Filipinas crowns" decoding="async" height="1400" src="/images/alexie-brooks-anne-diaz.webp" width="1120" />
             <figcaption>Reina Filipinas MGI All Stars 2026</figcaption>
           </figure>
           <div className="duo-feature__copy">

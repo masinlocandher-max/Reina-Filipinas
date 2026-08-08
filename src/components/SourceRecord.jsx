@@ -1,4 +1,5 @@
 import { sources } from '../data/content.js'
+import ArrowIcon from './ArrowIcon.jsx'
 
 export default function SourceRecord({ title = 'Press & source record' }) {
   return (
@@ -16,7 +17,7 @@ export default function SourceRecord({ title = 'Press & source record' }) {
                 <strong>{source.title}</strong>
                 <small>{source.publication}</small>
               </span>
-              <span aria-hidden="true">↗</span>
+              <ArrowIcon direction="external" />
             </a>
           ))}
         </div>

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import ArrowIcon from '../components/ArrowIcon.jsx'
 import PageIntro from '../components/PageIntro.jsx'
 import SourceRecord from '../components/SourceRecord.jsx'
 import { leadership } from '../data/content.js'
@@ -16,14 +17,14 @@ export default function About() {
       <section className="about-brief">
         <div className="shell about-brief__grid">
           <figure className="about-brief__mark">
-            <img alt="Reina Filipinas official wordmark" src="/images/reina-filipinas-logo.jpeg" />
+            <img alt="Reina Filipinas official wordmark" decoding="async" height="1400" src="/images/reina-filipinas-logo.webp" width="1400" />
           </figure>
           <div className="about-brief__copy">
             <p className="eyeline">What it is</p>
             <h2>A national platform with a direct international purpose.</h2>
             <p>Reina Filipinas is the organization responsible for selecting and preparing Philippine delegates for Miss Grand International and MGI All Stars. Established in 2026, it brings the national selection process, delegate development and international assignments under one focused management team.</p>
             <p>The organization combines pageant preparation with communication, commercial discipline and brand representation. Its inaugural edition awarded one Reina Filipinas Grand International crown and two Reina Filipinas MGI All Stars titles.</p>
-            <Link className="text-link" to="/the-pageant">Read the inaugural story <span aria-hidden="true">→</span></Link>
+            <Link className="text-link" to="/the-pageant">Read the inaugural story <ArrowIcon /></Link>
           </div>
         </div>
       </section>

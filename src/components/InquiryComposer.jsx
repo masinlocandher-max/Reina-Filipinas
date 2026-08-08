@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { socialLinks } from '../data/content.js'
+import ArrowIcon from './ArrowIcon.jsx'
 
 const initialForm = { name: '', email: '', subject: 'General inquiry', message: '' }
 
@@ -53,7 +54,7 @@ export default function InquiryComposer() {
           <textarea name="message" onChange={update} required rows="6" value={form.message} />
         </label>
         <p className="form-note">This form prepares your message locally. No personal information is uploaded or stored.</p>
-        <button className="button button--gold" type="submit">Prepare inquiry <span aria-hidden="true">→</span></button>
+        <button className="button button--gold" type="submit">Prepare inquiry <ArrowIcon /></button>
       </form>
 
       {prepared && (
@@ -67,7 +68,7 @@ export default function InquiryComposer() {
             </button>
             {socialLinks.map((link) => (
               <a className="text-link text-link--light" href={link.href} key={link.href} rel="noreferrer" target="_blank">
-                Open {link.label} <span aria-hidden="true">↗</span>
+                Open {link.label} <ArrowIcon direction="external" />
               </a>
             ))}
           </div>

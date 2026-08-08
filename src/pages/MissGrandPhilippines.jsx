@@ -15,7 +15,7 @@ export default function MissGrandPhilippines() {
       <section className="winner-feature">
         <div className="shell winner-feature__grid">
           <figure>
-            <img alt="Angelica Lopez, Reina Filipinas Grand International 2026" src="/images/angelica-lopez.jpeg" />
+            <img alt="Angelica Lopez, Reina Filipinas Grand International 2026" decoding="async" height="1400" src="/images/angelica-lopez.webp" width="1119" />
             <figcaption>Reina Filipinas Grand International 2026</figcaption>
           </figure>
           <div className="winner-feature__copy">

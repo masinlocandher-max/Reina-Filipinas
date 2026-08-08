@@ -1,3 +1,4 @@
+import ArrowIcon from '../components/ArrowIcon.jsx'
 import InquiryComposer from '../components/InquiryComposer.jsx'
 import PageIntro from '../components/PageIntro.jsx'
 import { socialLinks } from '../data/content.js'
@@ -20,7 +21,7 @@ export default function Contact() {
             <div className="contact-socials">
               {socialLinks.map((link) => (
                 <a href={link.href} key={link.href} rel="noreferrer" target="_blank">
-                  <span>{link.label}</span><span aria-hidden="true">↗</span>
+                  <span>{link.label}</span><ArrowIcon direction="external" />
                 </a>
               ))}
             </div>

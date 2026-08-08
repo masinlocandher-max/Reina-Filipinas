@@ -5,6 +5,7 @@ import BrandMark from './BrandMark.jsx'
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
     document.body.classList.toggle('menu-open', isOpen)
@@ -19,8 +20,15 @@ export default function Header() {
     return () => window.removeEventListener('keydown', closeOnEscape)
   }, [])
 
+  useEffect(() => {
+    const updateHeader = () => setIsScrolled(window.scrollY > 24)
+    updateHeader()
+    window.addEventListener('scroll', updateHeader, { passive: true })
+    return () => window.removeEventListener('scroll', updateHeader)
+  }, [])
+
   return (
-    <header className="site-header">
+    <header className={`site-header${isScrolled ? ' site-header--scrolled' : ''}${isOpen ? ' site-header--menu-open' : ''}`}>
       <div className="shell site-header__inner">
         <BrandMark compact />
         <nav className="desktop-nav" aria-label="Primary navigation">
@@ -47,7 +55,7 @@ export default function Header() {
           <span />
         </button>
       </div>
-      <div className={`mobile-nav${isOpen ? ' mobile-nav--open' : ''}`} id="mobile-navigation">
+      <div aria-hidden={!isOpen} className={`mobile-nav${isOpen ? ' mobile-nav--open' : ''}`} id="mobile-navigation">
         <nav className="shell mobile-nav__inner" aria-label="Mobile navigation">
           {navigation.map((item, index) => (
             <NavLink

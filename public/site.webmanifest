@@ -1,0 +1,17 @@
+{
+  "name": "Reina Filipinas",
+  "short_name": "Reina Filipinas",
+  "description": "The Philippine national platform for Miss Grand International and MGI All Stars.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#020a07",
+  "theme_color": "#041f16",
+  "icons": [
+    {
+      "src": "/images/reina-filipinas-logo.webp",
+      "sizes": "1400x1400",
+      "type": "image/webp",
+      "purpose": "any"
+    }
+  ]
+}

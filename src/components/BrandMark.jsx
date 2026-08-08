@@ -3,7 +3,15 @@ import { Link } from 'react-router-dom'
 export default function BrandMark({ compact = false }) {
   return (
     <Link className={`brand-mark ${compact ? 'brand-mark--compact' : ''}`} to="/" aria-label="Reina Filipinas home">
-      <img className="brand-mark__image" alt="" aria-hidden="true" src="/images/reina-filipinas-wordmark.png" />
+      <img
+        alt=""
+        aria-hidden="true"
+        className="brand-mark__image"
+        decoding="async"
+        height="267"
+        src="/images/reina-filipinas-wordmark.png"
+        width="800"
+      />
       <span className="sr-only">Reina Filipinas</span>
     </Link>
   )
