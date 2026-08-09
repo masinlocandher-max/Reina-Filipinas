@@ -75,12 +75,13 @@ export default function Home() {
               <p className="eyeline">The inaugural coronation</p>
               <h2>Twenty-one delegates. Three crowns. One defining first night.</h2>
               <p>At Newport Performing Arts Theater, the inaugural competition crowned Angelica Lopez for Miss Grand International and Alexie Brooks and Anne Patricia Diaz for MGI All Stars.</p>
-              <p>The evening brought together an international judging panel, a four-person hosting team and a final royal court that established Reina Filipinas as a new force in Philippine pageantry.</p>
+              <p>Main-stage hosts Sean Kyle Ortega and Joy Barcoma guided the coronation with a composed, polished presence, connecting the competition rounds and the crowning of the inaugural royal court.</p>
               <div className="home-journal__figures" aria-label="Twenty-one delegates, three crowns, inaugural edition">
                 <div><strong>21</strong><span>Delegates</span></div>
                 <div><strong>03</strong><span>Crowns</span></div>
                 <div><strong>01</strong><span>Inaugural edition</span></div>
               </div>
+              <p className="home-journal__host-credit">The program also featured backstage and digital coverage from Gazini Ganados and Fuschia Anne Ravena.</p>
               <Link className="text-link text-link--light" to="/the-pageant">Read the full coronation article <ArrowIcon /></Link>
             </div>
           </div>

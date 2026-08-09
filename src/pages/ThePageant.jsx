@@ -97,17 +97,32 @@ export default function ThePageant() {
         </section>
 
         <section className="story-section story-section--people">
-          <div className="shell story-people-grid">
-            <div>
-              <p className="eyeline">Who hosted</p>
-              <h2>The voices of the night.</h2>
-              <p>Joy Barcoma and Sean Kyle Ortega led the main coronation program. Backstage and digital coverage was handled by Miss Universe Philippines Gazini Ganados and Miss International Queen 2022 Fuschia Anne Ravena.</p>
-              <dl className="host-list">
-                <div><dt>Main stage</dt><dd>Joy Barcoma · Sean Kyle Ortega</dd></div>
-                <div><dt>Backstage & digital</dt><dd>Gazini Ganados · Fuschia Anne Ravena</dd></div>
-              </dl>
+          <div className="shell">
+            <div className="story-host-feature">
+              <figure className="story-host-feature__portrait">
+                <img
+                  alt="Reina Filipinas hosts Sean Kyle Ortega and Joy Barcoma"
+                  decoding="async"
+                  height="1167"
+                  loading="lazy"
+                  src="/images/hosts-sean-kyle-ortega-joy-barcoma.webp"
+                  width="1347"
+                />
+                <figcaption>Sean Kyle Ortega and Joy Barcoma · Main-stage hosts</figcaption>
+              </figure>
+              <div className="story-host-feature__article">
+                <p className="eyeline">Who hosted</p>
+                <h2>Sean Kyle Ortega and Joy Barcoma gave the inaugural night its voice.</h2>
+                <p className="article-lede">The pair led the main coronation program with the poise and clarity required of a first edition carrying the expectations of a new national pageant organization.</p>
+                <p>Their work went beyond announcing names and competition results. They guided the audience through the transitions between the swimsuit, evening gown, final speech and question-and-answer rounds, maintaining the rhythm of the production as the field narrowed from 21 delegates to the inaugural titleholders.</p>
+                <p>Ortega and Barcoma brought an assured, formal presence to the stage while allowing the candidates and the significance of the first coronation to remain at the center of the program. Together, they helped give Reina Filipinas a polished public introduction and a hosting identity suited to its international ambitions.</p>
+                <dl className="host-list">
+                  <div><dt>Main stage</dt><dd>Joy Barcoma · Sean Kyle Ortega</dd></div>
+                  <div><dt>Backstage & digital</dt><dd>Gazini Ganados · Fuschia Anne Ravena</dd></div>
+                </dl>
+              </div>
             </div>
-            <div>
+            <div className="story-judges-feature">
               <p className="eyeline">Who judged</p>
               <h2>An international panel.</h2>
               <div className="judge-list">

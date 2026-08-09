@@ -1645,20 +1645,77 @@ figcaption {
   background: var(--ivory);
 }
 
-.story-people-grid {
+.story-host-feature {
   display: grid;
-  grid-template-columns: 0.88fr 1.12fr;
-  align-items: start;
-  gap: clamp(70px, 9vw, 130px);
+  grid-template-columns: minmax(440px, 1.08fr) minmax(0, 0.92fr);
+  align-items: center;
+  gap: clamp(64px, 8vw, 126px);
 }
 
-.story-people-grid > div > h2 {
+.story-host-feature__portrait {
+  position: relative;
+}
+
+.story-host-feature__portrait::before {
+  position: absolute;
+  z-index: 1;
+  top: -13px;
+  left: -13px;
+  width: 34%;
+  height: 38%;
+  border-top: 1px solid var(--gold);
+  border-left: 1px solid var(--gold);
+  content: '';
+  pointer-events: none;
+}
+
+.story-host-feature__portrait img {
+  width: 100%;
+  aspect-ratio: 1.15 / 1;
+  border: 1px solid var(--line-gold);
+  background: var(--black);
+  object-fit: cover;
+  object-position: center top;
+  box-shadow: var(--shadow-media);
+}
+
+.story-host-feature__portrait figcaption {
+  margin-top: 15px;
+  color: var(--muted);
+}
+
+.story-host-feature__article h2,
+.story-judges-feature h2 {
   margin: 21px 0 32px;
 }
 
-.story-people-grid > div > p:not(.eyeline) {
+.story-host-feature__article > p:not(.eyeline) {
   color: var(--muted);
   line-height: 1.9;
+}
+
+.story-host-feature__article > p + p {
+  margin-top: 22px;
+}
+
+.story-host-feature__article .article-lede {
+  color: var(--emerald-900);
+  font-size: clamp(1.25rem, 1.65vw, 1.72rem);
+  line-height: 1.45;
+}
+
+.story-judges-feature {
+  display: grid;
+  margin-top: clamp(90px, 10vw, 150px);
+  padding-top: clamp(64px, 7vw, 95px);
+  border-top: 1px solid var(--line);
+  grid-template-columns: minmax(240px, 0.62fr) minmax(0, 1.38fr);
+  align-items: start;
+  gap: clamp(60px, 8vw, 120px);
+}
+
+.story-judges-feature .judge-list {
+  margin-top: 0;
 }
 
 .host-list,
@@ -2895,9 +2952,18 @@ figcaption {
     gap: 42px;
   }
 
-  .story-people-grid {
+  .story-host-feature {
     grid-template-columns: 1fr;
-    gap: 80px;
+    gap: 60px;
+  }
+
+  .story-host-feature__portrait {
+    width: min(100%, 760px);
+  }
+
+  .story-judges-feature {
+    grid-template-columns: 1fr;
+    gap: 24px;
   }
 
   .royal-court-grid {
@@ -3293,8 +3359,21 @@ figcaption {
     grid-column: 2;
   }
 
-  .story-people-grid {
-    gap: 70px;
+  .story-host-feature {
+    gap: 44px;
+  }
+
+  .story-host-feature__portrait {
+    width: calc(100% - 6px);
+  }
+
+  .story-host-feature__article .article-lede {
+    font-size: 1.18rem;
+  }
+
+  .story-judges-feature {
+    margin-top: 76px;
+    padding-top: 58px;
   }
 
   .host-list > div {
