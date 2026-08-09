@@ -1,5 +1,6 @@
 import PageIntro from '../components/PageIntro.jsx'
 import SourceRecord from '../components/SourceRecord.jsx'
+import { responsiveImage } from '../utils/images.js'
 
 export default function AllStars() {
   return (
@@ -14,7 +15,7 @@ export default function AllStars() {
       <section className="duo-feature">
         <div className="shell duo-feature__grid">
           <figure>
-            <img alt="MGI All Stars titleholders Alexie Brooks and Anne Patricia Diaz wearing their Reina Filipinas crowns" decoding="async" height="1400" src="/images/alexie-brooks-anne-diaz.webp" width="1120" />
+            <img alt="MGI All Stars titleholders Alexie Brooks and Anne Patricia Diaz wearing their Reina Filipinas crowns" decoding="async" height="1400" loading="lazy" {...responsiveImage('/images/alexie-brooks-anne-diaz.webp', '(max-width: 720px) 92vw, 48vw')} width="1120" />
             <figcaption>Reina Filipinas MGI All Stars 2026</figcaption>
           </figure>
           <div className="duo-feature__copy">

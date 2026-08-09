@@ -9,7 +9,8 @@ export default function BrandMark({ compact = false }) {
         className="brand-mark__image"
         decoding="async"
         height="267"
-        src="/images/reina-filipinas-wordmark.png"
+        fetchPriority="high"
+        src="/images/reina-filipinas-wordmark.webp"
         width="800"
       />
       <span className="sr-only">Reina Filipinas</span>

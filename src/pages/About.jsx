@@ -3,6 +3,7 @@ import ArrowIcon from '../components/ArrowIcon.jsx'
 import PageIntro from '../components/PageIntro.jsx'
 import SourceRecord from '../components/SourceRecord.jsx'
 import { leadership } from '../data/content.js'
+import { responsiveImage } from '../utils/images.js'
 
 export default function About() {
   return (
@@ -17,7 +18,7 @@ export default function About() {
       <section className="about-brief">
         <div className="shell about-brief__grid">
           <figure className="about-brief__mark">
-            <img alt="Reina Filipinas official wordmark" decoding="async" height="1400" src="/images/reina-filipinas-logo.webp" width="1400" />
+            <img alt="Reina Filipinas official wordmark" decoding="async" height="1400" loading="lazy" {...responsiveImage('/images/reina-filipinas-logo.webp', '(max-width: 720px) 92vw, 45vw')} width="1400" />
           </figure>
           <div className="about-brief__copy">
             <p className="eyeline">What it is</p>
@@ -68,7 +69,7 @@ export default function About() {
                     alt={`${leader.name}, ${leader.role} of Reina Filipinas`}
                     decoding="async"
                     loading="lazy"
-                    src={leader.image}
+                    {...responsiveImage(leader.image, '(max-width: 720px) 290px, 170px')}
                     style={{ objectPosition: leader.imagePosition }}
                   />
                 </figure>

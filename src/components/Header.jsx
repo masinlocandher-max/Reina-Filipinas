@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { navigation } from '../data/content.js'
 import BrandMark from './BrandMark.jsx'
@@ -6,6 +6,8 @@ import BrandMark from './BrandMark.jsx'
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isHidden, setIsHidden] = useState(false)
+  const lastScrollY = useRef(0)
 
   useEffect(() => {
     document.body.classList.toggle('menu-open', isOpen)
@@ -21,14 +23,28 @@ export default function Header() {
   }, [])
 
   useEffect(() => {
-    const updateHeader = () => setIsScrolled(window.scrollY > 24)
+    const updateHeader = () => {
+      const currentScrollY = window.scrollY
+      const isMobile = window.matchMedia('(max-width: 980px)').matches
+
+      setIsScrolled(currentScrollY > 24)
+      if (isMobile && !isOpen) {
+        const isMovingDown = currentScrollY > lastScrollY.current + 8
+        const isMovingUp = currentScrollY < lastScrollY.current - 8
+        if (isMovingDown && currentScrollY > 130) setIsHidden(true)
+        if (isMovingUp || currentScrollY < 80) setIsHidden(false)
+      } else {
+        setIsHidden(false)
+      }
+      lastScrollY.current = currentScrollY
+    }
     updateHeader()
     window.addEventListener('scroll', updateHeader, { passive: true })
     return () => window.removeEventListener('scroll', updateHeader)
-  }, [])
+  }, [isOpen])
 
   return (
-    <header className={`site-header${isScrolled ? ' site-header--scrolled' : ''}${isOpen ? ' site-header--menu-open' : ''}`}>
+    <header className={`site-header${isScrolled ? ' site-header--scrolled' : ''}${isOpen ? ' site-header--menu-open' : ''}${isHidden ? ' site-header--hidden' : ''}`}>
       <div className="shell site-header__inner">
         <BrandMark compact />
         <nav className="desktop-nav" aria-label="Primary navigation">

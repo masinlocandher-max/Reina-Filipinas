@@ -3,6 +3,7 @@ import { Route, Routes, useLocation } from 'react-router-dom'
 import Header from './components/Header.jsx'
 import Footer from './components/Footer.jsx'
 import ScrollToTop from './components/ScrollToTop.jsx'
+import MotionController from './components/MotionController.jsx'
 import Home from './pages/Home.jsx'
 import About from './pages/About.jsx'
 import ThePageant from './pages/ThePageant.jsx'
@@ -87,6 +88,7 @@ export default function App() {
       <a className="skip-link" href="#main-content">Skip to content</a>
       <Metadata />
       <ScrollToTop />
+      <MotionController />
       <Header />
       <main id="main-content">
         <Routes>

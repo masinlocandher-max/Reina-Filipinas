@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import ArrowIcon from '../components/ArrowIcon.jsx'
+import { responsiveImage } from '../utils/images.js'
 
 export default function Home() {
   return (
@@ -60,7 +61,7 @@ export default function Home() {
               <Link className="text-link" to="/about">Meet the organization <ArrowIcon /></Link>
             </div>
             <figure className="home-journal__logo-frame">
-              <img alt="Reina Filipinas official logo" decoding="async" height="1400" loading="lazy" src="/images/reina-filipinas-logo.webp" width="1400" />
+              <img alt="Reina Filipinas official logo" decoding="async" height="1400" loading="lazy" {...responsiveImage('/images/reina-filipinas-logo.webp', '(max-width: 720px) 92vw, 42vw')} width="1400" />
             </figure>
           </div>
         </section>
@@ -68,7 +69,7 @@ export default function Home() {
         <section className="home-journal__coronation">
           <div className="shell home-journal__coronation-grid">
             <figure>
-              <img alt="The three inaugural Reina Filipinas titleholders" decoding="async" height="1400" loading="lazy" src="/images/titleholders-2026.webp" width="1120" />
+              <img alt="The three inaugural Reina Filipinas titleholders" decoding="async" height="1400" loading="lazy" {...responsiveImage('/images/titleholders-2026.webp', '(max-width: 720px) 92vw, 42vw')} width="1120" />
               <figcaption>Angelica Lopez, Alexie Brooks and Anne Patricia Diaz</figcaption>
             </figure>
             <div className="home-journal__copy home-journal__copy--light">
@@ -95,7 +96,7 @@ export default function Home() {
             </header>
             <div className="home-pathway-grid">
               <article>
-                <figure><img alt="Angelica Lopez of Palawan" decoding="async" height="1400" loading="lazy" src="/images/angelica-lopez.webp" width="1119" /></figure>
+                <figure><img alt="Angelica Lopez of Palawan" decoding="async" height="1400" loading="lazy" {...responsiveImage('/images/angelica-lopez.webp', '(max-width: 720px) 92vw, 46vw')} width="1119" /></figure>
                 <div>
                   <p className="eyeline">Miss Grand International · India</p>
                   <h3>Angelica Lopez</h3>
@@ -104,7 +105,7 @@ export default function Home() {
                 </div>
               </article>
               <article>
-                <figure><img alt="Alexie Brooks and Anne Patricia Diaz" decoding="async" height="1400" loading="lazy" src="/images/alexie-brooks-anne-diaz.webp" width="1120" /></figure>
+                <figure><img alt="Alexie Brooks and Anne Patricia Diaz" decoding="async" height="1400" loading="lazy" {...responsiveImage('/images/alexie-brooks-anne-diaz.webp', '(max-width: 720px) 92vw, 48vw')} width="1120" /></figure>
                 <div>
                   <p className="eyeline">MGI All Stars · Thailand</p>
                   <h3>Alexie Brooks & Anne Patricia Diaz</h3>

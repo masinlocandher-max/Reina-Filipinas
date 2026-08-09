@@ -1,5 +1,6 @@
 import PageIntro from '../components/PageIntro.jsx'
 import SourceRecord from '../components/SourceRecord.jsx'
+import { responsiveImage } from '../utils/images.js'
 import { franchiseTimeline } from '../data/content.js'
 
 export default function MissGrandPhilippines() {
@@ -15,7 +16,7 @@ export default function MissGrandPhilippines() {
       <section className="winner-feature">
         <div className="shell winner-feature__grid">
           <figure>
-            <img alt="Angelica Lopez, Reina Filipinas Grand International 2026" decoding="async" height="1400" src="/images/angelica-lopez.webp" width="1119" />
+            <img alt="Angelica Lopez, Reina Filipinas Grand International 2026" decoding="async" height="1400" loading="lazy" {...responsiveImage('/images/angelica-lopez.webp', '(max-width: 720px) 92vw, 48vw')} width="1119" />
             <figcaption>Reina Filipinas Grand International 2026</figcaption>
           </figure>
           <div className="winner-feature__copy">

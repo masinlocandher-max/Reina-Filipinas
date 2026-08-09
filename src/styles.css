@@ -284,7 +284,7 @@ figcaption {
   border-bottom: 1px solid rgba(231, 200, 127, 0.2);
   background: rgba(2, 4, 3, 0.76);
   color: var(--ivory);
-  transition: background-color 220ms ease, box-shadow 220ms ease;
+  transition: background-color 220ms ease, box-shadow 220ms ease, transform 320ms var(--ease-out);
   -webkit-backdrop-filter: blur(20px) saturate(125%);
   backdrop-filter: blur(20px) saturate(125%);
 }
@@ -293,6 +293,10 @@ figcaption {
 .site-header--menu-open {
   background: rgba(2, 7, 5, 0.94);
   box-shadow: 0 14px 38px rgba(0, 0, 0, 0.22);
+}
+
+.site-header--hidden:not(.site-header--menu-open) {
+  transform: translate3d(0, -105%, 0);
 }
 
 .site-header__inner {
@@ -427,7 +431,21 @@ figcaption {
   font-family: var(--font-display);
   font-size: clamp(2rem, 7vw, 3.25rem);
   line-height: 1;
+  opacity: 0;
+  transform: translate3d(24px, 0, 0);
+  transition: color 180ms ease, opacity 420ms var(--ease-out), transform 460ms var(--ease-out);
 }
+
+.mobile-nav--open .mobile-nav__link {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.mobile-nav--open .mobile-nav__link:nth-child(2) { transition-delay: 45ms; }
+.mobile-nav--open .mobile-nav__link:nth-child(3) { transition-delay: 90ms; }
+.mobile-nav--open .mobile-nav__link:nth-child(4) { transition-delay: 135ms; }
+.mobile-nav--open .mobile-nav__link:nth-child(5) { transition-delay: 180ms; }
+.mobile-nav--open .mobile-nav__link:nth-child(6) { transition-delay: 225ms; }
 
 .mobile-nav__link > span {
   color: var(--gold);
@@ -632,6 +650,44 @@ figcaption {
 @keyframes scroll-cue {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(5px); }
+}
+
+/* Progressive editorial motion */
+
+.motion-reveal {
+  opacity: 0;
+  transform: translate3d(0, 24px, 0);
+  transition:
+    opacity 720ms var(--ease-out),
+    transform 780ms var(--ease-out),
+    clip-path 900ms var(--ease-out);
+  transition-delay: calc(var(--motion-order, 0) * 55ms);
+  will-change: opacity, transform;
+}
+
+.motion-reveal--media {
+  clip-path: inset(0 0 10% 0);
+  transform: translate3d(0, 30px, 0) scale(0.99);
+}
+
+.motion-reveal--visible {
+  opacity: 1;
+  clip-path: inset(0 0 0 0);
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+.motion-reveal--visible img {
+  animation: image-settle 950ms var(--ease-out);
+}
+
+@keyframes image-settle {
+  from { transform: scale(1.025); }
+  to { transform: scale(1); }
+}
+
+@keyframes mobile-hero-drift {
+  from { transform: scale(1.015) translate3d(-0.4%, 0, 0); }
+  to { transform: scale(1.045) translate3d(0.8%, -0.35%, 0); }
 }
 
 /* Home editorial */
@@ -1022,7 +1078,7 @@ figcaption {
   bottom: -28%;
   width: min(48vw, 700px);
   aspect-ratio: 1;
-  background: url('/images/reina-filipinas-wordmark.png') center / contain no-repeat;
+  background: url('/images/reina-filipinas-wordmark.webp') center / contain no-repeat;
   content: '';
   opacity: 0.035;
   pointer-events: none;
@@ -3007,6 +3063,39 @@ figcaption {
     scroll-padding-top: calc(var(--header-height) + 12px);
   }
 
+  body {
+    overscroll-behavior-y: none;
+  }
+
+  a,
+  button {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .motion-reveal {
+    transform: translate3d(0, 34px, 0);
+    transition-duration: 680ms, 740ms, 820ms;
+    transition-delay: calc(var(--motion-order, 0) * 38ms);
+  }
+
+  .motion-reveal--media {
+    clip-path: inset(0 0 13% 0 round 1px);
+    transform: translate3d(0, 40px, 0) scale(0.975);
+  }
+
+  .motion-reveal--visible {
+    clip-path: inset(0 0 0 0 round 1px);
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  .button:active,
+  .text-link:active,
+  .mobile-nav__link:active,
+  .home-campaign__links a:active {
+    transform: scale(0.985);
+  }
+
   .site-header__inner {
     width: calc(100% - 24px);
   }
@@ -3044,6 +3133,7 @@ figcaption {
 
   .home-hero__video {
     object-position: 56% center;
+    animation: mobile-hero-drift 15s ease-in-out infinite alternate;
   }
 
   .home-hero__minimal {

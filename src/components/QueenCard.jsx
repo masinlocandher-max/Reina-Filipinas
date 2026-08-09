@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import ArrowIcon from './ArrowIcon.jsx'
+import { responsiveImage } from '../utils/images.js'
 
 export default function QueenCard({ queen, priority = false }) {
   return (
@@ -11,7 +12,7 @@ export default function QueenCard({ queen, priority = false }) {
           decoding="async"
           height="2048"
           loading={priority ? 'eager' : 'lazy'}
-          src={queen.image}
+          {...responsiveImage(queen.image, '(max-width: 720px) 92vw, 42vw')}
           style={{ objectPosition: queen.imagePosition || 'center center' }}
           width="1639"
         />
