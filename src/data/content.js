@@ -12,6 +12,8 @@ export const leadership = [
     number: '01',
     name: 'Jojo Bragais',
     role: 'President & CEO',
+    image: '/images/jojo-bragais.webp',
+    imagePosition: 'center 34%',
     description:
       'Founder of Jojo Bragais Shoes and a longstanding force in international pageantry, shaping Reina Filipinas through commercial discipline and global perspective.',
   },
@@ -19,6 +21,8 @@ export const leadership = [
     number: '02',
     name: 'Emma Mary Tiglao',
     role: 'National Director',
+    image: '/images/emma-mary-tiglao.webp',
+    imagePosition: 'center 24%',
     description:
       'Miss Grand International 2025, bringing a titleholder’s understanding of preparation, representation and the demands of the international stage.',
   },
@@ -26,6 +30,8 @@ export const leadership = [
     number: '03',
     name: 'Nawat Itsaragrisil',
     role: 'Executive Partner',
+    image: '/images/nawat-itsaragrisil.webp',
+    imagePosition: 'center 22%',
     description:
       'President and founder of Miss Grand International, aligning the national platform with the direction and standards of the international organization.',
   },

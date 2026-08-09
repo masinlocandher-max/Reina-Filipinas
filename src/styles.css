@@ -1311,9 +1311,9 @@ figcaption {
   display: grid;
   padding: 36px 0;
   border-bottom: 1px solid rgba(231, 200, 127, 0.22);
-  grid-template-columns: 0.28fr 0.72fr 1fr;
-  align-items: start;
-  gap: 48px;
+  grid-template-columns: 48px minmax(150px, 210px) minmax(260px, 0.72fr) minmax(300px, 1fr);
+  align-items: center;
+  gap: clamp(28px, 4vw, 64px);
 }
 
 .leadership-list article > span {
@@ -1321,6 +1321,36 @@ figcaption {
   font-size: 0.68rem;
   font-weight: 650;
   letter-spacing: 0.15em;
+}
+
+.leadership-list__portrait {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  margin: 0;
+  background: #050806;
+  border: 1px solid rgba(231, 200, 127, 0.32);
+  border-radius: 999px 999px 18px 18px;
+  box-shadow: 0 20px 54px rgba(0, 0, 0, 0.26);
+}
+
+.leadership-list__portrait::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 62%, rgba(4, 31, 22, 0.38));
+  content: '';
+  pointer-events: none;
+}
+
+.leadership-list__portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 700ms var(--ease-out);
+}
+
+.leadership-list article:hover .leadership-list__portrait img {
+  transform: scale(1.025);
 }
 
 .leadership-list .eyeline {
@@ -2836,7 +2866,7 @@ figcaption {
   }
 
   .leadership-list article {
-    grid-template-columns: 60px 0.9fr 1.1fr;
+    grid-template-columns: 48px minmax(130px, 170px) 0.9fr 1.1fr;
     gap: 25px;
   }
 
@@ -3201,8 +3231,15 @@ figcaption {
     gap: 18px;
   }
 
+  .leadership-list__portrait,
+  .leadership-list article > div,
   .leadership-list article > p {
     grid-column: 2;
+  }
+
+  .leadership-list__portrait {
+    width: min(100%, 290px);
+    margin-bottom: 12px;
   }
 
   .coronation-story__opening {

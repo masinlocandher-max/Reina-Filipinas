@@ -63,6 +63,15 @@ export default function About() {
             {leadership.map((leader) => (
               <article key={leader.name}>
                 <span>{leader.number}</span>
+                <figure className="leadership-list__portrait">
+                  <img
+                    alt={`${leader.name}, ${leader.role} of Reina Filipinas`}
+                    decoding="async"
+                    loading="lazy"
+                    src={leader.image}
+                    style={{ objectPosition: leader.imagePosition }}
+                  />
+                </figure>
                 <div>
                   <p className="eyeline">{leader.role}</p>
                   <h3>{leader.name}</h3>
