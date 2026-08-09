@@ -2549,7 +2549,10 @@ figcaption {
 
 .candidate-directory {
   padding: var(--section-space) 0;
-  background: var(--ivory);
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 85% 8%, rgba(184, 142, 54, 0.12), transparent 26%),
+    var(--ivory);
 }
 
 .candidate-directory__heading {
@@ -2559,14 +2562,26 @@ figcaption {
   gap: 80px;
 }
 
-.candidate-directory .eyeline {
-  color: var(--emerald-800);
+.candidate-directory__year {
+  color: var(--gold-700);
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
 }
 
 .candidate-directory h2 {
-  margin-top: 21px;
+  margin-top: 12px;
   color: var(--ink);
   font-size: clamp(3.4rem, 5vw, 5.8rem);
+}
+
+.candidate-directory__intro {
+  max-width: 560px;
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.75;
 }
 
 .candidate-search label {
@@ -2619,27 +2634,58 @@ figcaption {
 
 .candidate-list {
   margin-top: 66px;
-  border-top: 1px solid var(--gold);
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 42px 18px;
 }
 
 .candidate-list article {
-  display: grid;
-  padding: 20px 0;
-  border-bottom: 1px solid var(--line);
-  grid-template-columns: 50px 1fr auto;
-  align-items: baseline;
-  gap: 20px;
+  min-width: 0;
 }
 
-.candidate-list article > span {
-  color: var(--gold-700);
-  font-size: 0.62rem;
-  font-weight: 650;
+.candidate-list figure {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  aspect-ratio: 3 / 4;
+  border: 1px solid rgba(148, 113, 37, 0.25);
+  background: var(--emerald-950);
+}
+
+.candidate-list figure::after {
+  position: absolute;
+  inset: auto 0 0;
+  height: 36%;
+  background: linear-gradient(transparent, rgba(3, 25, 19, 0.72));
+  content: '';
+  pointer-events: none;
+}
+
+.candidate-list figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.candidate-list figure span {
+  position: absolute;
+  z-index: 1;
+  right: 13px;
+  bottom: 11px;
+  color: rgba(255, 247, 225, 0.88);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.candidate-list__identity {
+  padding-top: 17px;
 }
 
 .candidate-list h3 {
   color: var(--ink);
-  font-size: 1.55rem;
+  font-size: clamp(1.3rem, 1.65vw, 1.72rem);
+  line-height: 1.05;
 }
 
 .candidate-list h3 + p {
@@ -2648,14 +2694,17 @@ figcaption {
   font-size: 0.73rem;
 }
 
-.candidate-list article > strong {
+.candidate-list__identity strong {
+  display: inline-block;
+  margin-top: 11px;
   color: var(--emerald-800);
-  font-size: 0.62rem;
-  letter-spacing: 0.09em;
+  font-size: 0.56rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
 .candidate-list__empty {
+  grid-column: 1 / -1;
   padding: 50px 0;
 }
 
@@ -3068,6 +3117,10 @@ figcaption {
   .candidate-directory__heading {
     grid-template-columns: 1fr;
     gap: 28px;
+  }
+
+  .candidate-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .leadership-list article {
@@ -3638,13 +3691,22 @@ figcaption {
     gap: 40px;
   }
 
-  .candidate-list article {
-    grid-template-columns: 36px 1fr;
-    gap: 10px 14px;
+  .candidate-list {
+    margin-top: 48px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 34px 12px;
   }
 
-  .candidate-list article > strong {
-    grid-column: 2;
+  .candidate-list__identity {
+    padding-top: 13px;
+  }
+
+  .candidate-list h3 {
+    font-size: 1.18rem;
+  }
+
+  .candidate-list h3 + p {
+    font-size: 0.68rem;
   }
 
   .source-record__grid {
