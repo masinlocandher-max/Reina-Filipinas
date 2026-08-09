@@ -50,12 +50,13 @@ function Metadata() {
   const { pathname } = useLocation()
 
   useEffect(() => {
-    const metadata = pageMeta[pathname] || {
+    const normalizedPath = pathname === '/' ? pathname : pathname.replace(/\/+$/, '')
+    const metadata = pageMeta[normalizedPath] || {
       title: 'Page not found | Reina Filipinas',
       description: 'Return to the official Reina Filipinas website.',
       image: '/images/reina-filipinas-logo.webp',
     }
-    const canonicalUrl = `${siteUrl}${pathname === '/' ? '' : pathname}`
+    const canonicalUrl = `${siteUrl}${normalizedPath === '/' ? '' : normalizedPath}`
     const imageUrl = `${siteUrl}${metadata.image}`
 
     document.title = metadata.title
