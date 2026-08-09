@@ -10,14 +10,16 @@ export default function Home() {
           aria-hidden="true"
           autoPlay
           className="home-hero__video"
+          crossOrigin="anonymous"
           disablePictureInPicture
           loop
           muted
           playsInline
-          poster="/media/reina-hero-poster.webp"
+          poster="/media/reina-hero-poster-hd.webp"
           preload="metadata"
           tabIndex="-1"
         >
+          <source src="https://drive.usercontent.google.com/download?id=1Nx0LGGktBQqS6rIWMvJmsnUUxpnn_3nh&amp;export=download&amp;confirm=t" type="video/mp4" />
           <source src="/media/reina-hero.mp4" type="video/mp4" />
         </video>
 

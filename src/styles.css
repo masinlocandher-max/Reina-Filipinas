@@ -19,6 +19,7 @@
   --shadow-media: 0 32px 90px rgba(2, 19, 13, 0.18);
   --font-display: 'Cormorant Garamond', Georgia, serif;
   --font-ui: 'Manrope', Arial, sans-serif;
+  --announcement-height: 34px;
   --header-height: 92px;
   --shell: min(1360px, calc(100vw - 96px));
   --section-space: clamp(112px, 9vw, 164px);
@@ -35,7 +36,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: calc(var(--header-height) + 24px);
+  scroll-padding-top: calc(var(--announcement-height) + var(--header-height) + 24px);
 }
 
 body {
@@ -308,6 +309,97 @@ figcaption {
   justify-content: space-between;
 }
 
+.announcement-bar {
+  position: relative;
+  z-index: 103;
+  height: var(--announcement-height);
+  overflow: hidden;
+  border-bottom: 1px solid rgba(67, 39, 4, 0.3);
+  background:
+    linear-gradient(105deg, #9a631d 0%, #e5bd63 24%, #fff0af 48%, #c88f32 70%, #f0cf79 100%);
+  color: #170e03;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.18);
+}
+
+.announcement-bar::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 38%, rgba(255, 255, 255, 0.45) 48%, transparent 58%);
+  content: '';
+  pointer-events: none;
+  transform: translateX(-120%);
+  animation: announcement-shine 6s ease-in-out infinite;
+}
+
+.announcement-bar__track {
+  display: flex;
+  width: max-content;
+  min-width: 200%;
+  height: 100%;
+  align-items: center;
+  animation: announcement-marquee 28s linear infinite;
+  will-change: transform;
+}
+
+.announcement-bar:hover .announcement-bar__track,
+.announcement-bar:focus-within .announcement-bar__track {
+  animation-play-state: paused;
+}
+
+.announcement-bar__message {
+  display: flex;
+  min-width: max-content;
+  align-items: center;
+  gap: 29px;
+  padding-inline: 28px;
+  font-size: 0.61rem;
+  font-weight: 600;
+  letter-spacing: 0.095em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.announcement-bar__message > * {
+  position: relative;
+}
+
+.announcement-bar__message > * + *::before {
+  position: absolute;
+  top: 50%;
+  left: -17px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: currentColor;
+  content: '';
+  opacity: 0.58;
+  transform: translateY(-50%);
+}
+
+.announcement-bar__message strong {
+  font-weight: 800;
+}
+
+.announcement-bar__message a {
+  border-bottom: 1px solid rgba(23, 14, 3, 0.42);
+  font-weight: 750;
+  transition: border-color 160ms ease, opacity 160ms ease;
+}
+
+.announcement-bar__message a:hover {
+  border-color: currentColor;
+  opacity: 0.72;
+}
+
+@keyframes announcement-marquee {
+  to { transform: translate3d(-50%, 0, 0); }
+}
+
+@keyframes announcement-shine {
+  0%, 72% { transform: translateX(-120%); }
+  100% { transform: translateX(120%); }
+}
+
 .brand-mark {
   display: block;
   width: 218px;
@@ -398,7 +490,7 @@ figcaption {
   z-index: 101;
   inset: 0;
   display: none;
-  padding-top: var(--header-height);
+  padding-top: calc(var(--announcement-height) + var(--header-height));
   background:
     radial-gradient(circle at 100% 15%, rgba(29, 112, 78, 0.32), transparent 36%),
     var(--emerald-950);
@@ -416,7 +508,7 @@ figcaption {
 
 .mobile-nav__inner {
   display: grid;
-  height: calc(100svh - var(--header-height));
+  height: calc(100svh - var(--announcement-height) - var(--header-height));
   align-content: center;
   padding-bottom: 7vh;
 }
@@ -465,7 +557,7 @@ figcaption {
   position: relative;
   min-height: max(760px, 100svh);
   overflow: hidden;
-  background: #020403 url('/media/reina-hero-poster.webp') center / cover no-repeat;
+  background: #020403 url('/media/reina-hero-poster-hd.webp') center / cover no-repeat;
   color: var(--ivory);
   isolation: isolate;
 }
@@ -508,7 +600,7 @@ figcaption {
   display: flex;
   min-height: max(760px, 100svh);
   align-items: center;
-  padding-top: calc(var(--header-height) + 54px);
+  padding-top: calc(var(--announcement-height) + var(--header-height) + 54px);
   padding-bottom: 58px;
 }
 
@@ -1054,7 +1146,7 @@ figcaption {
   position: relative;
   min-height: 610px;
   overflow: hidden;
-  padding: calc(var(--header-height) + 86px) 0 100px;
+  padding: calc(var(--announcement-height) + var(--header-height) + 86px) 0 100px;
   border-bottom: 1px solid var(--emerald-800);
   background:
     radial-gradient(circle at 92% 22%, rgba(201, 155, 72, 0.12), transparent 18%),
@@ -2763,7 +2855,7 @@ figcaption {
   display: grid;
   min-height: 82svh;
   align-items: center;
-  padding: calc(var(--header-height) + 90px) 0 90px;
+  padding: calc(var(--announcement-height) + var(--header-height) + 90px) 0 90px;
   background: var(--emerald-950);
   color: var(--ivory);
 }
@@ -3054,13 +3146,14 @@ figcaption {
 
 @media (max-width: 700px) {
   :root {
+    --announcement-height: 32px;
     --header-height: 74px;
     --shell: calc(100% - 32px);
     --section-space: 86px;
   }
 
   html {
-    scroll-padding-top: calc(var(--header-height) + 12px);
+    scroll-padding-top: calc(var(--announcement-height) + var(--header-height) + 12px);
   }
 
   body {
@@ -3115,6 +3208,17 @@ figcaption {
     font-size: clamp(2rem, 9vw, 2.8rem);
   }
 
+  .announcement-bar__message {
+    gap: 24px;
+    padding-inline: 20px;
+    font-size: 0.56rem;
+    letter-spacing: 0.075em;
+  }
+
+  .announcement-bar__message > * + *::before {
+    left: -14px;
+  }
+
   .button {
     min-height: 54px;
     padding: 0 20px;
@@ -3139,7 +3243,7 @@ figcaption {
   .home-hero__minimal {
     min-height: 100svh;
     align-items: flex-end;
-    padding-top: calc(var(--header-height) + 28px);
+    padding-top: calc(var(--announcement-height) + var(--header-height) + 28px);
     padding-bottom: 45px;
   }
 
@@ -3325,7 +3429,7 @@ figcaption {
 
   .page-intro {
     min-height: 0;
-    padding: calc(var(--header-height) + 60px) 0 76px;
+    padding: calc(var(--announcement-height) + var(--header-height) + 60px) 0 76px;
   }
 
   .page-intro::after {

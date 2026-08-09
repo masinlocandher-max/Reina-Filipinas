@@ -18,7 +18,7 @@ const pageMeta = {
   '/': {
     title: 'Reina Filipinas | Official Website',
     description: 'The Philippine national platform for Miss Grand International and MGI All Stars.',
-    image: '/media/reina-hero-poster.webp',
+    image: '/media/reina-hero-poster-hd.webp',
   },
   '/about': {
     title: 'About | Reina Filipinas',
