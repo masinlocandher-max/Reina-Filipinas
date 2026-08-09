@@ -89,7 +89,7 @@ export function normalizePath(pathname) {
 
 export function canonicalFor(pathname) {
   const path = normalizePath(pathname)
-  return `${SITE_URL}${path === '/' ? '/' : path}`
+  return `${SITE_URL}${path === '/' ? '/' : `${path}/`}`
 }
 
 export function schemaFor(pathname, metadata = pageMeta[normalizePath(pathname)] || notFoundMeta) {
