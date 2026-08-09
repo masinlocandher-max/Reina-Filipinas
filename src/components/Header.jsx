@@ -45,20 +45,6 @@ export default function Header() {
 
   return (
     <header className={`site-header${isScrolled ? ' site-header--scrolled' : ''}${isOpen ? ' site-header--menu-open' : ''}${isHidden ? ' site-header--hidden' : ''}`}>
-      <aside className="announcement-bar" aria-label="Website development announcement">
-        <div className="announcement-bar__track">
-          {[0, 1].map((repeat) => (
-            <p aria-hidden={repeat === 1} className="announcement-bar__message" key={repeat}>
-              <span>This website was developed by <strong>SENZ Strategic Communications and Digital Solutions</strong>, an <strong>FMB&amp;CO.</strong> company.</span>
-              <span>Founded by Francine Marie Bautista</span>
-              <span>Work with FMB</span>
-              <a href="https://senzpr.com" rel="noreferrer" target="_blank">senzpr.com</a>
-              <a href="https://www.francinemariebautista.com" rel="noreferrer" target="_blank">www.francinemariebautista.com</a>
-              <a href="mailto:withlovefmb@gmail.com">withlovefmb@gmail.com</a>
-            </p>
-          ))}
-        </div>
-      </aside>
       <div className="shell site-header__inner">
         <BrandMark compact />
         <nav className="desktop-nav" aria-label="Primary navigation">

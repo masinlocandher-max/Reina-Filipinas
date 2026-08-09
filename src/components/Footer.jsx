@@ -6,6 +6,27 @@ import BrandMark from './BrandMark.jsx'
 export default function Footer() {
   return (
     <footer className="site-footer">
+      <section className="shell footer-powered" aria-labelledby="footer-powered-title">
+        <div className="footer-powered__copy">
+          <p className="footer-label">Special announcement</p>
+          <h2 id="footer-powered-title">Powered by <em>SENZ</em></h2>
+          <p>Strategic Communications and Digital Solutions</p>
+          <a href="https://senzpr.com" rel="noreferrer" target="_blank">
+            <span>Visit senzpr.com</span>
+            <ArrowIcon direction="external" />
+          </a>
+        </div>
+        <a className="footer-powered__media" href="https://senzpr.com" rel="noreferrer" target="_blank">
+          <img
+            alt="SENZ PR, Marketing and Digital Solutions. Influence through clarity."
+            decoding="async"
+            height="720"
+            loading="lazy"
+            src="/images/senz-powered-by.webp"
+            width="1280"
+          />
+        </a>
+      </section>
       <div className="shell site-footer__grid">
         <div className="site-footer__identity">
           <BrandMark />
