@@ -29,8 +29,13 @@ jobs:
         run: npm ci
       - name: Build
         run: npm run build
-      - name: Add SPA fallback
-        run: cp dist/index.html dist/404.html
+      - name: Add route entry points and SPA fallback
+        run: |
+          cp dist/index.html dist/404.html
+          for route in about the-pageant mgi-all-stars miss-grand-philippines contact; do
+            mkdir -p "dist/$route"
+            cp dist/index.html "dist/$route/index.html"
+          done
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload site
