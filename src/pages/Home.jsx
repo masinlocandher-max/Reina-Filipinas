@@ -1,26 +1,13 @@
 import { Link } from 'react-router-dom'
 import ArrowIcon from '../components/ArrowIcon.jsx'
+import HeroVideo from '../components/HeroVideo.jsx'
 import { responsiveImage } from '../utils/images.js'
 
 export default function Home() {
   return (
     <>
       <section className="home-hero home-hero--video">
-        <video
-          aria-hidden="true"
-          autoPlay
-          className="home-hero__video"
-          disablePictureInPicture
-          loop
-          muted
-          playsInline
-          poster="/media/reina-hero-poster-hd.webp"
-          preload="metadata"
-          tabIndex="-1"
-        >
-          <source src="/media/reina-hero-hd.mp4" type="video/mp4" />
-          <source src="/media/reina-hero.mp4" type="video/mp4" />
-        </video>
+        <HeroVideo />
 
         <div className="shell home-hero__minimal">
           <div className="home-hero__minimal-copy">
