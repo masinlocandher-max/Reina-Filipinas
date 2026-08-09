@@ -551,6 +551,134 @@ figcaption {
   color: var(--gold-light);
 }
 
+/* Editorial architecture */
+
+main {
+  position: relative;
+}
+
+main::before {
+  position: fixed;
+  z-index: 8;
+  top: 50%;
+  left: 18px;
+  width: 1px;
+  height: 84px;
+  background: linear-gradient(transparent, rgba(201, 155, 72, 0.58), transparent);
+  content: '';
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+main::after {
+  position: fixed;
+  z-index: 8;
+  top: 50%;
+  right: 14px;
+  width: 7px;
+  height: 7px;
+  border: 1px solid rgba(201, 155, 72, 0.62);
+  content: '';
+  pointer-events: none;
+  transform: rotate(45deg);
+}
+
+.page-intro__copy,
+.story-section__heading,
+.home-journal__pathways-heading {
+  position: relative;
+}
+
+.page-intro__copy::before,
+.story-section__heading::before,
+.home-journal__pathways-heading::before {
+  position: absolute;
+  top: -28px;
+  left: 0;
+  width: 64px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+  content: '';
+}
+
+.coronation-story__hero,
+.story-host-feature__portrait,
+.winner-editorial-grid figure,
+.royal-court-grid__image,
+.home-pathway-grid figure {
+  isolation: isolate;
+}
+
+.coronation-story__hero::after,
+.story-host-feature__portrait::after,
+.winner-editorial-grid figure::after,
+.royal-court-grid__image::after,
+.home-pathway-grid figure::after {
+  position: absolute;
+  z-index: 2;
+  inset: 10px;
+  border: 1px solid rgba(242, 223, 170, 0.32);
+  content: '';
+  pointer-events: none;
+}
+
+.home-journal__institution,
+.home-journal__pathways,
+.candidate-directory,
+.story-section--winners,
+.story-section--people {
+  background-image:
+    radial-gradient(circle at 8% 12%, rgba(201, 155, 72, 0.075), transparent 23%),
+    radial-gradient(circle at 92% 88%, rgba(11, 75, 55, 0.055), transparent 28%);
+}
+
+.candidate-list article {
+  position: relative;
+}
+
+.candidate-list article::before {
+  position: absolute;
+  z-index: 2;
+  top: -5px;
+  left: -5px;
+  width: 24px;
+  height: 24px;
+  border-top: 1px solid var(--gold);
+  border-left: 1px solid var(--gold);
+  content: '';
+  pointer-events: none;
+}
+
+.candidate-list figure {
+  box-shadow: 0 22px 52px rgba(2, 19, 13, 0.14);
+}
+
+.candidate-list__identity {
+  position: relative;
+  padding-left: 14px;
+}
+
+.candidate-list__identity::before {
+  position: absolute;
+  top: 20px;
+  bottom: 3px;
+  left: 0;
+  width: 1px;
+  background: linear-gradient(var(--gold), rgba(201, 155, 72, 0.1));
+  content: '';
+}
+
+.desktop-nav .nav-link--active::before {
+  position: absolute;
+  top: 50%;
+  left: -11px;
+  width: 4px;
+  height: 4px;
+  border: 1px solid var(--gold-light);
+  content: '';
+  transform: translateY(-50%) rotate(45deg);
+}
+
 /* Home hero */
 
 .home-hero {
