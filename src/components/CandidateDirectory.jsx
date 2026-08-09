@@ -15,8 +15,9 @@ export default function CandidateDirectory() {
       <div className="shell">
         <div className="candidate-directory__heading">
           <div>
-            <p className="eyeline">The inaugural class</p>
-            <h2 id="candidate-directory-title">Meet the 21 delegates.</h2>
+            <p className="candidate-directory__year">2026</p>
+            <h2 id="candidate-directory-title">Meet the Reinas</h2>
+            <p className="candidate-directory__intro">The 21 women who formed the inaugural class of Reina Filipinas.</p>
           </div>
           <div className="candidate-search">
             <label htmlFor="candidate-search-input">Search by name, locality or result</label>
@@ -48,12 +49,22 @@ export default function CandidateDirectory() {
         <div className={`candidate-list${normalizedQuery ? ' candidate-list--filtered' : ''}`} role="list">
           {visibleCandidates.length ? visibleCandidates.map((candidate) => (
             <article key={candidate.name} role="listitem">
-              <span>{String(candidates.indexOf(candidate) + 1).padStart(2, '0')}</span>
-              <div>
+              <figure>
+                <img
+                  alt={`${candidate.name}, Reina Filipinas 2026 representative of ${candidate.locality}`}
+                  decoding="async"
+                  height="1440"
+                  loading="lazy"
+                  src={candidate.image}
+                  width="1080"
+                />
+                <span>{String(candidates.indexOf(candidate) + 1).padStart(2, '0')}</span>
+              </figure>
+              <div className="candidate-list__identity">
                 <h3>{candidate.name}</h3>
                 <p>{candidate.locality}</p>
+                <strong>{candidate.status}</strong>
               </div>
-              <strong>{candidate.status}</strong>
             </article>
           )) : (
             <div className="candidate-list__empty">
